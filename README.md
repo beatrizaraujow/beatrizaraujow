@@ -2,7 +2,7 @@
 
 - 🤔 Explorando novas tecnologias e desenvolvendo soluções de software.
 - 🎓 Estudando Ciência da Computação na Universidade Potiguar.
-- 🌱 Aprendendo mais sobre HTML, CSS, React.js, TypeScript .
+- 🌱 Aprendendo mais sobre JavaScript, React.js, TypeScript .
 
 ## Minhas Skills
 
