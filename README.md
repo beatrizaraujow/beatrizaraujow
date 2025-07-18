@@ -1,8 +1,8 @@
 ## Sobre mim
 
-- 🤔 Explorando novas tecnologias e desenvolvendo soluções de software.
-- 🎓 Estudando Ciência da Computação na Universidade Potiguar.
-- 🌱 Aprendendo mais sobre JavaScript, React.js, TypeScript .
+-  Explorando novas tecnologias e desenvolvendo soluções de software.
+-  Estudando Ciência da Computação na Universidade Potiguar.
+-  Aprendendo mais sobre JavaScript, React.js, TypeScript .
 
 ## Minhas Skills
 
@@ -17,9 +17,6 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![TypeScript](https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square)
 ![MySQL](https://img.shields.io/badge/-MySQL-333333?style=flat&logo=mysql)
-
-**DevOps**
-
 ![Git](https://img.shields.io/badge/-Git-333333?style=flat&logo=git)
 ![GitHub](https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github)
 
