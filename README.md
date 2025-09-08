@@ -1,3 +1,11 @@
+###
+
+<div align="center">
+  <img height="150" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHliYWpsbDd3dnUxbGM3cmtsM2x5Yjducjk5Z3BmMGs4cnV0amEwNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oKIPnAiaMCws8nOsE/giphy.gif"  />
+</div>
+
+###
+
 <h1 align="center">Olá, sou Beatriz Araujo</h1>
 <h3 align="center">Sou uma desenvolvedora Full Stack em desenvolvimento. Atualmente estou focada em aprimorar minhas habilidades e construir projetos práticos que unem front-end e back-end.</h3>
 
