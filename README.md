@@ -1,3 +1,10 @@
+<h1 align="center">Olá, sou Beatriz Araujo</h1>
+<h3 align="center">Sou uma desenvolvedora Full Stack em desenvolvimento. Atualmente estou focada em aprimorar minhas habilidades e construir projetos práticos que unem front-end e back-end.</h3>
+
+- Estou atualmente trabalhando em um projeto pessoal [Sistema de cadastro](https://github.com/beatrizaraujow)
+
+- Estou aprendendo sobre **APIs REST, SQL (relacional), ORMs, Docker**
+
 <h2 align="left">Olá, sou Beatriz Araujo</h2>
 
 ###
