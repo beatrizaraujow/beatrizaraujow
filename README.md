@@ -7,7 +7,7 @@
 ###
 
 <h1 align="center">Olá, sou Beatriz Araujo</h1>
-<h3 align="center">Sou uma desenvolvedora Full Stack em desenvolvimento. Atualmente estou focada em aprimorar minhas habilidades e construir projetos práticos que unem front-end e back-end.</h3>
+<h3 align="center">Sou uma desenvolvedora Full Stack. Atualmente estou focada em aprimorar minhas habilidades e construir projetos práticos que unem front-end e back-end.</h3>
 
 - Estou aprendendo sobre **APIs REST, SQL (relacional), ORMs, Docker**
 
