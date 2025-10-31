@@ -12,7 +12,7 @@ Atualmente, estou aprofundando meus conhecimentos em APIs REST, ORMs e Docker, b
 
 </h3>
 
-- Além da programação, possuo experiência em Web Design, com domínio de ferramentas como Photoshop, Canva, WordPress e Framer, unindo funcionalidade e estética em cada projeto.**
+- Além da programação, possuo experiência em Web Design, com domínio de ferramentas como Photoshop, Canva, WordPress e Framer, unindo funcionalidade e estética em cada projeto.
 
 <h2 align="left">Olá, sou Beatriz Araujo</h2>
 
