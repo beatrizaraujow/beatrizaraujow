@@ -7,7 +7,10 @@
 ###
 
 <h1 align="center">Olá, sou Beatriz Araujo</h1>
-<h3 align="center">Sou uma desenvolvedora Full Stack. Atualmente estou focada em aprimorar minhas habilidades e construir projetos práticos que unem front-end e back-end.</h3>
+<h3 align="center">Desenvolvedora Full Stack, focada em aprimorar continuamente minhas habilidades e construir projetos práticos que integrem front-end e back-end.
+Atualmente, estou aprofundando meus conhecimentos em APIs REST, bancos de dados relacionais (SQL), ORMs e Docker, buscando sempre desenvolver soluções escaláveis e bem estruturadas.
+
+Além da programação, possuo experiência em Web Design, com domínio de ferramentas como Photoshop, Canva, WordPress e Framer, unindo funcionalidade e estética em cada projeto.</h3>
 
 - Estou aprendendo sobre **APIs REST, SQL (relacional), ORMs, Docker**
 
