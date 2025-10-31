@@ -10,9 +10,9 @@
 <h3 align="center">Desenvolvedora Full Stack, focada em aprimorar continuamente minhas habilidades e construir projetos práticos que integrem front-end e back-end.
 Atualmente, estou aprofundando meus conhecimentos em APIs REST, ORMs e Docker, buscando sempre desenvolver soluções escaláveis e bem estruturadas.
 
-Além da programação, possuo experiência em Web Design, com domínio de ferramentas como Photoshop, Canva, WordPress e Framer, unindo funcionalidade e estética em cada projeto.</h3>
+</h3>
 
-- Estou aprendendo sobre **APIs REST, SQL (relacional), ORMs, Docker**
+- Além da programação, possuo experiência em Web Design, com domínio de ferramentas como Photoshop, Canva, WordPress e Framer, unindo funcionalidade e estética em cada projeto.**
 
 <h2 align="left">Olá, sou Beatriz Araujo</h2>
 
