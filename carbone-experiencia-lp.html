@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiência Carbone — Carbone Educação</title>
+  <meta name="description" content="A Experiência Carbone é um encontro presencial exclusivo com empresários locais do mesmo nível. Diagnóstico do seu negócio, conexões reais e acesso aos bastidores de uma das maiores startups do estado." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0A0A0A;
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dark: #A87D2A;
+      --white: #F5F5F5;
+      --graphite: #1A1A1A;
+      --graphite-2: #222222;
+      --gray: #888888;
+      --gray-light: #CCCCCC;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
+      --transition: 0.3s ease;
+      --shadow: 0 8px 40px rgba(0,0,0,0.4);
+      --shadow-gold: 0 4px 24px rgba(201,168,76,0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: var(--font-body);
+    }
+
+    /* ===========================
+       UTILITIES
+    =========================== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: '◆';
+      font-size: 9px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      line-height: 1.2;
+    }
+
+    .gold { color: var(--gold); }
+
+    /* ===========================
+       SCROLL REVEAL
+    =========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::before {
+      left: 150%;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 14px 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      font-size: 11px;
+      padding: 12px 24px;
+      letter-spacing: 1.5px;
+    }
+
+    /* ===========================
+       SECTION 1 — HERO
+    =========================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+
+    /* Noise overlay */
+    .hero-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      margin-bottom: 36px;
+      animation: badgePulse 3s ease infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.3); }
+      50% { box-shadow: 0 0 0 8px rgba(201,168,76,0); }
+    }
+
+    .hero-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: dot-blink 1.5s ease infinite;
+    }
+
+    @keyframes dot-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-h1 {
+      font-size: clamp(36px, 6vw, 80px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--gray-light);
+      max-width: 640px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    /* Video placeholder */
+    .hero-video-wrap {
+      max-width: 70%;
+      margin: 0 auto 48px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .hero-video-placeholder {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 40%, #111 100%);
+      border: 1px solid rgba(201,168,76,0.25);
+      overflow: hidden;
+    }
+
+    .hero-video-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 50%, rgba(201,168,76,0.03) 100%);
+    }
+
+    .hero-video-placeholder::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(10,10,10,0.7), transparent);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-video-wrap:hover .video-play-btn {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 40px rgba(201,168,76,0.5);
+    }
+
+    .video-play-btn i {
+      color: var(--black);
+      font-size: 28px;
+      margin-left: 4px;
+    }
+
+    .hero-video-caption {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 2;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-style: italic;
+    }
+
+    .hero-cta-wrap {
+      max-width: 560px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-microcopy {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===========================
+       SECTION 2 — O QUE É
+    =========================== */
+    #what-is {
+      background: var(--graphite);
+      padding: 100px 0;
+    }
+
+    .what-is-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .what-is-intro h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .what-is-intro p {
+      color: var(--gray-light);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 36px 32px;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.04);
+      transform: translateY(-4px);
+    }
+
+    .feature-card-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .what-is-cta {
+      text-align: center;
+    }
+
+    /* ===========================
+       SECTION 3 — BIG NUMBERS
+    =========================== */
+    #numbers {
+      background: #F5F5F0;
+      color: var(--black);
+      padding: 100px 0;
+    }
+
+    #numbers .section-label {
+      display: block;
+      text-align: center;
+    }
+
+    #numbers h2 {
+      text-align: center;
+      font-size: clamp(26px, 3.5vw, 42px);
+      color: var(--black);
+      margin-bottom: 64px;
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    .number-item {
+      padding: 32px 16px;
+      border-right: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .number-item:last-child {
+      border-right: none;
+    }
+
+    .number-value {
+      font-family: var(--font-heading);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      color: var(--gold-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .number-label {
+      font-size: 14px;
+      color: #444;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Logo wall */
+    .logo-wall-title {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+
+    .logo-wall {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .logo-item {
+      padding: 12px 28px;
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 1px;
+      border-right: 1px solid #ddd;
+      transition: color var(--transition);
+    }
+
+    .logo-item:last-child {
+      border-right: none;
+    }
+
+    .logo-item:hover {
+      color: var(--gold-dark);
+    }
+
+    /* ===========================
+       SECTION 4 — BENEFITS
+    =========================== */
+    #benefits {
+      background: var(--black);
+      padding: 100px 0;
+    }
+
+    .benefits-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+
+    .benefits-header h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--white);
+    }
+
+    .benefit-list {
+      max-width: 800px;
+      margin: 0 auto 56px;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background var(--transition);
+    }
+
+    .benefit-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .benefit-number {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.4;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 72px;
+      transition: opacity var(--transition);
+    }
+
+    .benefit-item:hover .benefit-number {
+      opacity: 1;
+    }
+
+    .benefit-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .benefit-body h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .benefit-body p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .benefits-cta {
+      text-align: center;
+    }
+
+    /* ===========================
+       SECTION 5 — GALLERY
+    =========================== */
+    #gallery {
+      background: var(--graphite-2);
+      padding: 100px 0;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-header h2 {
+      font-size: clamp(26px, 3.5vw, 42px);
+      color: var(--white);
+    }
+
+    .gallery-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-card {
+      flex-shrink: 0;
+      width: calc(25% - 18px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-img {
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-img-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover .gallery-img-inner {
+      transform: scale(1.05);
+    }
+
+    .gallery-card:nth-child(1) .gallery-img-inner {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    }
+    .gallery-card:nth-child(2) .gallery-img-inner {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2d1b00 100%);
+    }
+    .gallery-card:nth-child(3) .gallery-img-inner {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 50%, #2d1500 100%);
+    }
+    .gallery-card:nth-child(4) .gallery-img-inner {
+      background: linear-gradient(135deg, #050505 0%, #111111 50%, #1a1a00 100%);
+    }
+
+    .gallery-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(201,168,76,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-img-overlay i {
+      font-size: 40px;
+      color: rgba(201,168,76,0.3);
+    }
+
+    .gallery-caption {
+      padding: 16px 20px;
+      background: rgba(0,0,0,0.6);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-light);
+      border-top: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .gallery-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .gallery-btn {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(201,168,76,0.4);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .gallery-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .gallery-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.3);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .gallery-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ===========================
+       SECTION 6 — TESTIMONIALS
+    =========================== */
+    #testimonials {
+      background: var(--white);
+      color: var(--black);
+      padding: 100px 0;
+    }
+
+    #testimonials .section-label {
+      color: var(--gold-dark);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .testimonials-header h2 {
+      font-size: clamp(26px, 3.5vw, 42px);
+      color: var(--black);
+    }
+
+    .testimonials-carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-card {
+      flex-shrink: 0;
+      width: calc(33.333% - 16px);
+      background: var(--white);
+      border: 1px solid #e8e8e8;
+      padding: 36px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .testimonial-meta h4 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 3px;
+    }
+
+    .testimonial-meta span {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .testimonial-stars {
+      color: var(--gold-dark);
+      font-size: 13px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .testimonials-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .testimonials-btn {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(0,0,0,0.2);
+      background: transparent;
+      color: var(--black);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .testimonials-btn:hover {
+      background: var(--gold-dark);
+      color: var(--white);
+      border-color: var(--gold-dark);
+    }
+
+    .testimonials-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .testimonials-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .testimonials-dot.active {
+      background: var(--gold-dark);
+      transform: scale(1.3);
+    }
+
+    /* ===========================
+       SECTION 7 — FORM
+    =========================== */
+    #form-section {
+      background: var(--black);
+      padding: 100px 0;
+    }
+
+    .form-card {
+      background: var(--graphite);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 56px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .form-header h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .form-header p {
+      color: var(--gray);
+      font-size: 15px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+    }
+
+    .form-label .required {
+      color: var(--gold);
+      margin-left: 2px;
+    }
+
+    .form-control {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 14px 16px;
+      font-size: 15px;
+      transition: border-color var(--transition), background var(--transition);
+      width: 100%;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .form-control:focus {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.04);
+    }
+
+    .form-control.error {
+      border-color: #e53e3e;
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: #fc8181;
+      display: none;
+    }
+
+    .form-error.visible {
+      display: block;
+    }
+
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    select.form-control option {
+      background: var(--graphite);
+      color: var(--white);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit-wrap {
+      margin-top: 36px;
+      text-align: center;
+    }
+
+    .form-microcopy {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 14px;
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .form-success.visible {
+      display: block;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-success-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(201,168,76,0.15);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+      color: var(--gold);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .form-success p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    /* ===========================
+       SECTION 8 — FAQ
+    =========================== */
+    #faq {
+      background: var(--graphite);
+      padding: 100px 0;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .faq-header h2 {
+      font-size: clamp(26px, 3.5vw, 42px);
+      color: var(--white);
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      cursor: pointer;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .faq-question span {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(201,168,76,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 28px 0;
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.8;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    /* ===========================
+       SECTION 9 — FOOTER
+    =========================== */
+    #footer {
+      background: var(--black);
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 30px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .footer-info {
+      display: flex;
+      gap: 48px;
+    }
+
+    .footer-info-group h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .footer-info-group p,
+    .footer-info-group a {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .footer-info-group a:hover {
+      color: var(--gold);
+    }
+
+    .footer-info-group i {
+      color: var(--gold);
+      font-size: 13px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1200px) {
+      .gallery-card {
+        width: calc(50% - 12px);
+      }
+
+      .testimonial-card {
+        width: calc(50% - 12px);
+      }
+
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .number-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .number-item:nth-child(3) {
+        border-right: 1px solid rgba(0,0,0,0.1);
+      }
+
+      .number-item:nth-child(3),
+      .number-item:nth-child(4) {
+        border-top: 1px solid rgba(0,0,0,0.1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-cta { display: none; }
+
+      .hero-video-wrap {
+        max-width: 100%;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .number-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+      }
+
+      .number-item:last-child {
+        border-bottom: none;
+      }
+
+      .benefit-item {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .benefit-number {
+        width: auto;
+        font-size: 36px;
+      }
+
+      .gallery-card {
+        width: calc(100% - 0px);
+      }
+
+      .testimonial-card {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .form-card {
+        padding: 36px 24px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-info {
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo-item {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+
+    /* ===========================
+       FLOATING CTA (mobile)
+    =========================== */
+    .floating-cta {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      white-space: nowrap;
+      display: none;
+      box-shadow: 0 8px 40px rgba(201,168,76,0.4);
+      font-size: 12px;
+      padding: 14px 24px;
+    }
+
+    @media (max-width: 768px) {
+      .floating-cta {
+        display: inline-flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVBAR
+  =========================== -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">CARBONE<span>.</span></a>
+        <a href="#form-section" class="btn-primary nav-cta">GARANTIR VAGA ▶</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       SECTION 1 — HERO
+  =========================== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-noise"></div>
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-badge reveal">
+          <span class="badge-dot"></span>
+          <span>PRÓXIMO EVENTO — <span id="next-event-date"></span> · Natal, RN</span>
+        </div>
+
+        <h1 class="hero-h1 reveal reveal-delay-1">
+          Uma reunião.<br>
+          <em>Dez empresários.</em><br>
+          Resultados reais.
+        </h1>
+
+        <p class="hero-subtitle reveal reveal-delay-2">
+          A Experiência Carbone é um encontro presencial exclusivo com empresários locais do mesmo nível. Diagnóstico do seu negócio, conexões reais e acesso aos bastidores de uma das maiores startups do estado.
+        </p>
+
+        <!-- Video Placeholder -->
+        <div class="hero-video-wrap reveal reveal-delay-3">
+          <div class="hero-video-placeholder">
+            <div class="video-play-btn">
+              <i class="fas fa-play"></i>
+            </div>
+            <div class="hero-video-caption">Assista Igor Freire apresentar a Experiência Carbone</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="hero-cta-wrap reveal reveal-delay-4">
+          <a href="#form-section" class="btn-primary btn-full" style="font-size:13px; letter-spacing:2px; padding:20px 40px;">
+            GARANTIR MINHA VAGA NA EXPERIÊNCIA CARBONE
+          </a>
+          <p class="hero-microcopy">🔒 Vagas limitadas &nbsp;•&nbsp; Seleção de perfil obrigatória &nbsp;•&nbsp; 100% presencial</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 2 — O QUE É
+  =========================== -->
+  <section id="what-is">
+    <div class="container">
+      <div class="what-is-intro">
+        <span class="section-label reveal">A EXPERIÊNCIA</span>
+        <h2 class="reveal reveal-delay-1">O que acontece na Experiência Carbone?</h2>
+        <p class="reveal reveal-delay-2">
+          A Carbone Experience é uma reunião presencial, fechada e exclusiva, realizada no prédio da Carbone Educação em Natal. Você participa ao lado de até 9 outros empresários selecionados estrategicamente com base no seu setor, faturamento e objetivos de negócio.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Diagnóstico Individual</h3>
+          <p>Identificação dos principais gargalos e soluções prioritárias para os próximos 90 dias do seu negócio.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Match Estratégico</h3>
+          <p>Identificamos quem no grupo tem objetivos complementares aos seus. Conexões intencionais, não trocas de cartão aleatórias.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-card-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3>Bastidores da Startup</h3>
+          <p>Conheça de dentro a operação, a cultura e os processos de uma empresa que constrói ecossistemas de alto impacto no RN.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4">
+          <div class="feature-card-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>Vagas Limitadas — máx. 10</h3>
+          <p>A Experiência não é aberta ao público. Limitada a 10 participantes por encontro para garantir profundidade nas conversas.</p>
+        </div>
+      </div>
+
+      <div class="what-is-cta reveal">
+        <a href="#form-section" class="btn-outline">GARANTIR MINHA VAGA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 3 — BIG NUMBERS
+  =========================== -->
+  <section id="numbers">
+    <div class="container">
+      <span class="section-label reveal">ECOSSISTEMA CARBONE</span>
+      <h2 class="reveal reveal-delay-1">O ecossistema que já movimenta o empresariado do RN</h2>
+
+      <div class="numbers-grid">
+        <div class="number-item reveal reveal-delay-1">
+          <div class="number-value" data-target="5" data-prefix="+" data-suffix="bi">0</div>
+          <div class="number-label">Faturamento anual do ecossistema</div>
+        </div>
+        <div class="number-item reveal reveal-delay-2">
+          <div class="number-value" data-target="50" data-prefix="+">0</div>
+          <div class="number-label">Segmentos representados</div>
+        </div>
+        <div class="number-item reveal reveal-delay-3">
+          <div class="number-value" data-target="200" data-prefix="+">0</div>
+          <div class="number-label">Empresários conectados</div>
+        </div>
+        <div class="number-item reveal reveal-delay-4">
+          <div class="number-value" data-target="5000" data-prefix="+" data-display-suffix="k">0</div>
+          <div class="number-label">Empregos gerados</div>
+        </div>
+      </div>
+
+      <!-- Logo Wall -->
+      <div class="reveal">
+        <p class="logo-wall-title">Empresas conectadas ao ecossistema</p>
+        <div class="logo-wall">
+          <span class="logo-item">Camarões</span>
+          <span class="logo-item">Nordestão</span>
+          <span class="logo-item">Água Coco</span>
+          <span class="logo-item">Loucos por Coxinha</span>
+          <span class="logo-item">Be.move</span>
+          <span class="logo-item">ESIG Group</span>
+          <span class="logo-item">TOTVS</span>
+          <span class="logo-item">DNA Center</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 4 — BENEFITS
+  =========================== -->
+  <section id="benefits">
+    <div class="container">
+      <div class="benefits-header">
+        <span class="section-label reveal">BENEFÍCIOS</span>
+        <h2 class="reveal reveal-delay-1">Por que participar da Experiência Carbone?</h2>
+      </div>
+
+      <div class="benefit-list">
+        <div class="benefit-item reveal reveal-delay-1">
+          <div class="benefit-number">01</div>
+          <div class="benefit-icon"><i class="fas fa-users"></i></div>
+          <div class="benefit-body">
+            <h3>Reunião exclusiva com empresários do mesmo nível</h3>
+            <p>Você não vai estar em uma sala com qualquer pessoa. Cada participante é selecionado com base no seu perfil — setor, faturamento e objetivos. Uma mesa de negócios com quem realmente faz sentido para você.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal reveal-delay-2">
+          <div class="benefit-number">02</div>
+          <div class="benefit-icon"><i class="fas fa-crosshairs"></i></div>
+          <div class="benefit-body">
+            <h3>Match estratégico por objetivos de negócio</h3>
+            <p>Identificamos quem no grupo tem objetivos complementares aos seus. Você sai da Experiência com conexões intencionais — não trocas de cartão aleatórias.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal reveal-delay-3">
+          <div class="benefit-number">03</div>
+          <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="benefit-body">
+            <h3>Diagnóstico com seus maiores gargalos e próximos passos</h3>
+            <p>Durante a reunião, você passa por uma avaliação estratégica do seu negócio. Você recebe um direcionamento claro sobre o que está travando seu crescimento e o que ajustar nos próximos 90 dias.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal reveal-delay-4">
+          <div class="benefit-number">04</div>
+          <div class="benefit-icon"><i class="fas fa-door-open"></i></div>
+          <div class="benefit-body">
+            <h3>Acesso aos bastidores de uma das maiores startups do RN</h3>
+            <p>O encontro acontece no prédio da Carbone Educação. Você conhece de dentro a operação, a cultura e os processos de uma empresa que constrói ecossistemas de alto impacto.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal reveal-delay-5">
+          <div class="benefit-number">05</div>
+          <div class="benefit-icon"><i class="fas fa-gem"></i></div>
+          <div class="benefit-body">
+            <h3>Vagas limitadas — máx. 10 participantes</h3>
+            <p>A Experiência Carbone não é aberta ao público. É limitada a 10 participantes por encontro para garantir profundidade nas conversas e qualidade nas conexões.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="benefits-cta reveal">
+        <a href="#form-section" class="btn-primary" style="font-size:13px; letter-spacing:2px; padding:20px 48px;">
+          GARANTIR MINHA VAGA NA EXPERIÊNCIA CARBONE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 5 — GALLERY
+  =========================== -->
+  <section id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <span class="section-label reveal">AMBIENTE</span>
+        <h2 class="reveal reveal-delay-1">Conheça o ambiente da Experiência</h2>
+      </div>
+
+      <div class="gallery-carousel reveal reveal-delay-2">
+        <div class="gallery-track" id="galleryTrack">
+          <div class="gallery-card">
+            <div class="gallery-img">
+              <div class="gallery-img-inner">
+                <div class="gallery-img-overlay">
+                  <i class="fas fa-building"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-caption">Prédio Carbone</div>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-img">
+              <div class="gallery-img-inner">
+                <div class="gallery-img-overlay">
+                  <i class="fas fa-chair"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-caption">Sala de Reunião</div>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-img">
+              <div class="gallery-img-inner">
+                <div class="gallery-img-overlay">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-caption">Evento com Empresários</div>
+          </div>
+          <div class="gallery-card">
+            <div class="gallery-img">
+              <div class="gallery-img-inner">
+                <div class="gallery-img-overlay">
+                  <i class="fas fa-cog"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-caption">Bastidores da Operação</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-nav">
+        <button class="gallery-btn" id="galleryPrev" aria-label="Anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="gallery-dots" id="galleryDots"></div>
+        <button class="gallery-btn" id="galleryNext" aria-label="Próximo">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 6 — TESTIMONIALS
+  =========================== -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-label reveal">QUEM CONHECE, RECOMENDA</span>
+        <h2 class="reveal reveal-delay-1">O que os empresários dizem sobre o ecossistema Carbone</h2>
+      </div>
+
+      <div class="testimonials-carousel reveal reveal-delay-2">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testimonial-card">
+            <div class="testimonial-header-row">
+              <div class="testimonial-avatar">P</div>
+              <div class="testimonial-meta">
+                <h4>Pablo Farias</h4>
+                <span>Fundador · Loucos por Coxinha</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"A Experiência Carbone foi um divisor de águas. Em uma tarde, me conectei com empresários que estavam exatamente nos mesmos desafios que eu. As conexões que fiz ali ainda geram resultados para o negócio."</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header-row">
+              <div class="testimonial-avatar">D</div>
+              <div class="testimonial-meta">
+                <h4>Diogo Gaspar</h4>
+                <span>Fundador · AquaCoco</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Não é mais um grupo de networking. É uma reunião com método, intenção e resultado. Saí com ações concretas para os próximos 90 dias e dois parceiros estratégicos que não esperava encontrar."</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header-row">
+              <div class="testimonial-avatar">R</div>
+              <div class="testimonial-meta">
+                <h4>Robson Gomes</h4>
+                <span>Diretor · Gestus</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"A curadoria dos participantes faz toda diferença. Estar em uma sala com pessoas do mesmo nível e com objetivos similares acelera conversas que levariam meses para acontecer no ambiente normal."</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header-row">
+              <div class="testimonial-avatar">S</div>
+              <div class="testimonial-meta">
+                <h4>Stéffano Antunes</h4>
+                <span>CEO · Grupo Scopo</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Ver os bastidores da Carbone Educação por dentro foi tão valioso quanto as conexões. Uma operação real, decisões reais. Voltei para minha empresa com uma visão completamente diferente de crescimento."</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header-row">
+              <div class="testimonial-avatar">R</div>
+              <div class="testimonial-meta">
+                <h4>Rodrigo Amorim</h4>
+                <span>Fundador e CEO · Aço 101</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"O diagnóstico individual foi preciso. Em poucas perguntas, a equipe da Carbone identificou o maior gargalo da minha operação. Implementei o ajuste em duas semanas e os resultados foram imediatos."</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header-row">
+              <div class="testimonial-avatar">L</div>
+              <div class="testimonial-meta">
+                <h4>Lo-amy</h4>
+                <span>Fundador e CEO · BeMove</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Cheguei com dúvidas sobre o próximo passo da empresa e saí com clareza. A combinação de diagnóstico + match estratégico + bastidores de uma startup que escala é única no mercado do RN."</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="testimonials-nav">
+        <button class="testimonials-btn" id="testimonialsPrev" aria-label="Anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="testimonials-dots" id="testimonialsDots"></div>
+        <button class="testimonials-btn" id="testimonialsNext" aria-label="Próximo">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 7 — FORM
+  =========================== -->
+  <section id="form-section">
+    <div class="container">
+      <div class="form-card reveal">
+
+        <div class="form-header">
+          <span class="section-label" style="justify-content:center; margin-bottom:16px;">GARANTA SUA VAGA</span>
+          <h2>Garanta sua vaga na Experiência Carbone</h2>
+          <p>Preencha as informações abaixo. Nossa equipe analisará seu perfil e entrará em contato para confirmar sua participação.</p>
+        </div>
+
+        <form id="carboneForm" novalidate>
+          <div class="form-grid">
+
+            <!-- Name -->
+            <div class="form-group">
+              <label class="form-label" for="field-name">Nome completo<span class="required">*</span></label>
+              <input class="form-control" type="text" id="field-name" name="nome" placeholder="Seu nome completo" required />
+              <span class="form-error" id="error-name">Por favor, insira seu nome completo.</span>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="form-group">
+              <label class="form-label" for="field-whatsapp">WhatsApp<span class="required">*</span></label>
+              <input class="form-control" type="tel" id="field-whatsapp" name="whatsapp" placeholder="(99) 99999-9999" required maxlength="15" />
+              <span class="form-error" id="error-whatsapp">Por favor, insira um número válido.</span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="field-email">E-mail<span class="required">*</span></label>
+              <input class="form-control" type="email" id="field-email" name="email" placeholder="seuemail@empresa.com" required />
+              <span class="form-error" id="error-email">Por favor, insira um e-mail válido.</span>
+            </div>
+
+            <!-- Company -->
+            <div class="form-group">
+              <label class="form-label" for="field-company">Nome da empresa<span class="required">*</span></label>
+              <input class="form-control" type="text" id="field-company" name="empresa" placeholder="Nome da sua empresa" required />
+              <span class="form-error" id="error-company">Por favor, insira o nome da empresa.</span>
+            </div>
+
+            <!-- Role -->
+            <div class="form-group">
+              <label class="form-label" for="field-role">Cargo / Função<span class="required">*</span></label>
+              <input class="form-control" type="text" id="field-role" name="cargo" placeholder="CEO, Diretor, Fundador..." required />
+              <span class="form-error" id="error-role">Por favor, insira seu cargo.</span>
+            </div>
+
+            <!-- Revenue -->
+            <div class="form-group">
+              <label class="form-label" for="field-revenue">Faturamento médio anual<span class="required">*</span></label>
+              <select class="form-control" id="field-revenue" name="faturamento" required>
+                <option value="" disabled selected>Selecione uma faixa</option>
+                <option value="ate-500k">Até R$500k</option>
+                <option value="500k-1m">R$500k a R$1M</option>
+                <option value="1m-5m">R$1M a R$5M</option>
+                <option value="5m-10m">R$5M a R$10M</option>
+                <option value="acima-10m">Acima de R$10M</option>
+              </select>
+              <span class="form-error" id="error-revenue">Por favor, selecione o faturamento.</span>
+            </div>
+
+            <!-- What do you sell -->
+            <div class="form-group full">
+              <label class="form-label" for="field-sells">O que você vende?<span class="required">*</span></label>
+              <textarea class="form-control" id="field-sells" name="vende" placeholder="Descreva seu produto, serviço ou segmento..." required></textarea>
+              <span class="form-error" id="error-sells">Por favor, descreva o que você vende.</span>
+            </div>
+
+            <!-- Who is your client -->
+            <div class="form-group full">
+              <label class="form-label" for="field-client">Quem é seu cliente?<span class="required">*</span></label>
+              <textarea class="form-control" id="field-client" name="cliente" placeholder="Principais características do seu cliente ideal..." required></textarea>
+              <span class="form-error" id="error-client">Por favor, descreva seu cliente.</span>
+            </div>
+
+            <!-- What blocks you -->
+            <div class="form-group full">
+              <label class="form-label" for="field-block">O que trava sua empresa nos próximos 90 dias?<span class="required">*</span></label>
+              <textarea class="form-control" id="field-block" name="trava" placeholder="Descreva seu maior desafio ou gargalo atual..." required></textarea>
+              <span class="form-error" id="error-block">Por favor, descreva o que trava sua empresa.</span>
+            </div>
+
+            <!-- Preferred date -->
+            <div class="form-group">
+              <label class="form-label" for="field-date">Data preferida<span class="required">*</span></label>
+              <input class="form-control" type="date" id="field-date" name="data" required />
+              <span class="form-error" id="error-date">Por favor, selecione uma data (mínimo 7 dias a partir de hoje).</span>
+            </div>
+
+            <!-- Preferred time -->
+            <div class="form-group">
+              <label class="form-label" for="field-time">Horário preferido<span class="required">*</span></label>
+              <select class="form-control" id="field-time" name="horario" required>
+                <option value="" disabled selected>Selecione um horário</option>
+                <option value="14:30">14h30</option>
+                <option value="15:00">15h00</option>
+                <option value="15:30">15h30</option>
+                <option value="16:00">16h00</option>
+                <option value="16:30">16h30</option>
+                <option value="17:00">17h00</option>
+              </select>
+              <span class="form-error" id="error-time">Por favor, selecione um horário.</span>
+            </div>
+
+          </div><!-- /form-grid -->
+
+          <div class="form-submit-wrap">
+            <button type="submit" class="btn-primary btn-full" style="font-size:14px; letter-spacing:2px; padding:20px;">
+              GARANTIR MINHA VAGA
+            </button>
+            <p class="form-microcopy">🔒 Seleção de perfil obrigatória &nbsp;•&nbsp; Resposta em até 48h</p>
+          </div>
+
+        </form>
+
+        <!-- Success message -->
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <h3>Solicitação enviada!</h3>
+          <p>Recebemos suas informações. Nossa equipe analisará seu perfil e entrará em contato via WhatsApp em até 48 horas.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 8 — FAQ
+  =========================== -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-header">
+        <h2 class="reveal">📌 Perguntas frequentes sobre a Carbone</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-question">
+            <span>Como funciona a seleção de participantes?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Ao preencher o formulário, nossa equipe analisa seu perfil: setor, faturamento e objetivos, para garantir que a reunião seja relevante para você e para os demais participantes. Participantes que não se encaixam no perfil são orientados a aguardar uma próxima edição.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-question">
+            <span>Onde acontece?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No prédio da Carbone Educação, localizado na R. Lafayete Lamartine, 1945 - Candelária, Natal - RN.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <div class="faq-question">
+            <span>Em quanto tempo recebo a confirmação?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Nossa equipe entrará em contato por WhatsApp em até 48 horas após o preenchimento do formulário.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-4">
+          <div class="faq-question">
+            <span>O que acontece depois da experiência?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Você recebe um direcionamento estratégico com seus principais gargalos e próximos passos. Se fizer sentido para seu momento, pode avançar para uma das comunidades da Carbone Educação — a Academy ou o Club.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-5">
+          <div class="faq-question">
+            <span>A Carbone Educação é um curso?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Não. É um ecossistema de empresários com metodologia, eventos presenciais, mentorias e conexões estratégicas. O foco é crescimento real.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-6">
+          <div class="faq-question">
+            <span>Já participo de outro grupo de networking. Faz sentido?</span>
+            <div class="faq-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim, se você busca estrutura, método e conexões intencionais. A Carbone não é grupo social. É crescimento empresarial com método.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 9 — FOOTER
+  =========================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <div class="footer-logo">CARBONE<span> EDUCAÇÃO</span></div>
+          <div class="footer-tagline">Ecossistema de Empresários</div>
+        </div>
+
+        <div class="footer-info">
+          <div class="footer-info-group">
+            <h4>Contato</h4>
+            <a href="https://wa.me/5584963456498" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i>
+              +55 (84) 9634-5698
+            </a>
+          </div>
+
+          <div class="footer-info-group">
+            <h4>Endereço</h4>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              R. Lafayete Lamartine, 1945<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Candelária, Natal - RN
+            </p>
+          </div>
+
+          <div class="footer-info-group">
+            <h4>Dados</h4>
+            <p><i class="fas fa-id-card"></i> CNPJ: 59.206.937/0001-60</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© <span id="currentYear"></span> Carbone Educação. Todos os direitos reservados.</p>
+        <p class="footer-copyright" style="color:rgba(201,168,76,0.4);">EXPERIÊNCIA CARBONE</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA (mobile) -->
+  <a href="#form-section" class="btn-primary floating-cta">GARANTIR MINHA VAGA ▶</a>
+
+  <!-- ===========================
+       JAVASCRIPT
+  =========================== -->
+  <script>
+    // ===========================
+    // DYNAMIC DATE: next Monday from today + 7 days
+    // ===========================
+    (function() {
+      // Get next Monday that is at least 7 days from now
+      var today = new Date();
+      var nextDate = new Date(today);
+      nextDate.setDate(today.getDate() + 7);
+      // Find the next Monday from that date
+      var dayOfWeek = nextDate.getDay(); // 0=Sun, 1=Mon
+      var daysUntilMonday = (dayOfWeek === 1) ? 0 : (8 - dayOfWeek) % 7;
+      nextDate.setDate(nextDate.getDate() + daysUntilMonday);
+
+      var months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+      var formatted = nextDate.getDate() + ' de ' + months[nextDate.getMonth()] + ' de ' + nextDate.getFullYear();
+
+      var el = document.getElementById('next-event-date');
+      if (el) el.textContent = formatted;
+
+      // Set min date for form (today + 7 days)
+      var minDate = new Date(today);
+      minDate.setDate(today.getDate() + 7);
+      var yyyy = minDate.getFullYear();
+      var mm = String(minDate.getMonth() + 1).padStart(2, '0');
+      var dd = String(minDate.getDate()).padStart(2, '0');
+      var dateInput = document.getElementById('field-date');
+      if (dateInput) {
+        dateInput.min = yyyy + '-' + mm + '-' + dd;
+      }
+
+      // Footer year
+      var yearEl = document.getElementById('currentYear');
+      if (yearEl) yearEl.textContent = today.getFullYear();
+    })();
+
+    // ===========================
+    // NAVBAR SCROLL
+    // ===========================
+    (function() {
+      var navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 60) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    })();
+
+    // ===========================
+    // SCROLL REVEAL
+    // ===========================
+    (function() {
+      var elements = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      elements.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // ===========================
+    // ANIMATED COUNTERS
+    // ===========================
+    (function() {
+      var counters = document.querySelectorAll('.number-value[data-target]');
+      var countersStarted = false;
+
+      function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+      }
+
+      function animateCounter(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var displaySuffix = el.getAttribute('data-display-suffix') || '';
+        var duration = 2000;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = easeOutQuart(progress);
+          var current = Math.floor(eased * target);
+
+          // Display k format for thousands
+          if (displaySuffix === 'k' && current >= 1000) {
+            el.textContent = prefix + Math.floor(current / 1000) + 'k' + suffix;
+          } else {
+            el.textContent = prefix + current + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            if (displaySuffix === 'k') {
+              el.textContent = prefix + (target / 1000) + 'k' + suffix;
+            } else {
+              el.textContent = prefix + target + suffix;
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !countersStarted) {
+            countersStarted = true;
+            counters.forEach(function(counter) {
+              animateCounter(counter);
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      var numbersSection = document.getElementById('numbers');
+      if (numbersSection) observer.observe(numbersSection);
+    })();
+
+    // ===========================
+    // PHONE MASK
+    // ===========================
+    (function() {
+      var phoneInput = document.getElementById('field-whatsapp');
+      if (!phoneInput) return;
+
+      phoneInput.addEventListener('input', function(e) {
+        var val = e.target.value.replace(/\D/g, '');
+        var masked = '';
+
+        if (val.length > 0) masked += '(' + val.substring(0, 2);
+        if (val.length >= 3) masked += ') ' + val.substring(2, 7);
+        if (val.length >= 8) masked += '-' + val.substring(7, 11);
+
+        e.target.value = masked;
+      });
+    })();
+
+    // ===========================
+    // GALLERY CAROUSEL
+    // ===========================
+    (function() {
+      var track = document.getElementById('galleryTrack');
+      var prevBtn = document.getElementById('galleryPrev');
+      var nextBtn = document.getElementById('galleryNext');
+      var dotsContainer = document.getElementById('galleryDots');
+      if (!track) return;
+
+      var cards = track.querySelectorAll('.gallery-card');
+      var totalCards = cards.length;
+      var currentIndex = 0;
+      var visibleCount = getVisibleCount();
+      var maxIndex = totalCards - visibleCount;
+
+      function getVisibleCount() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1200) return 2;
+        return 4;
+      }
+
+      function getCardWidth() {
+        if (!cards[0]) return 0;
+        return cards[0].offsetWidth + 24; // card + gap
+      }
+
+      function updateCarousel() {
+        var offset = currentIndex * getCardWidth();
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        updateDots();
+        prevBtn.style.opacity = currentIndex === 0 ? '0.4' : '1';
+        nextBtn.style.opacity = currentIndex >= maxIndex ? '0.4' : '1';
+      }
+
+      function createDots() {
+        dotsContainer.innerHTML = '';
+        visibleCount = getVisibleCount();
+        maxIndex = Math.max(0, totalCards - visibleCount);
+        var numDots = maxIndex + 1;
+        for (var i = 0; i <= maxIndex; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+          dot.addEventListener('click', (function(idx) {
+            return function() {
+              currentIndex = idx;
+              updateCarousel();
+            };
+          })(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        var dots = dotsContainer.querySelectorAll('.gallery-dot');
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+      });
+
+      nextBtn.addEventListener('click', function() {
+        if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); }
+      });
+
+      // Touch swipe
+      var startX = 0;
+      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', function(e) {
+        var diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentIndex < maxIndex) { currentIndex++; }
+          else if (diff < 0 && currentIndex > 0) { currentIndex--; }
+          updateCarousel();
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', function() {
+        visibleCount = getVisibleCount();
+        maxIndex = Math.max(0, totalCards - visibleCount);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        createDots();
+        updateCarousel();
+      });
+
+      createDots();
+      updateCarousel();
+    })();
+
+    // ===========================
+    // TESTIMONIALS CAROUSEL
+    // ===========================
+    (function() {
+      var track = document.getElementById('testimonialsTrack');
+      var prevBtn = document.getElementById('testimonialsPrev');
+      var nextBtn = document.getElementById('testimonialsNext');
+      var dotsContainer = document.getElementById('testimonialsDots');
+      if (!track) return;
+
+      var cards = track.querySelectorAll('.testimonial-card');
+      var totalCards = cards.length;
+      var currentIndex = 0;
+      var autoplayTimer = null;
+      var isPaused = false;
+
+      function getVisibleCount() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1200) return 2;
+        return 3;
+      }
+
+      function getCardWidth() {
+        if (!cards[0]) return 0;
+        return cards[0].offsetWidth + 24;
+      }
+
+      function getMaxIndex() {
+        return Math.max(0, totalCards - getVisibleCount());
+      }
+
+      function updateCarousel() {
+        var offset = currentIndex * getCardWidth();
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        updateDots();
+      }
+
+      function createDots() {
+        dotsContainer.innerHTML = '';
+        var maxIndex = getMaxIndex();
+        for (var i = 0; i <= maxIndex; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Depoimento ' + (i + 1));
+          dot.addEventListener('click', (function(idx) {
+            return function() {
+              currentIndex = idx;
+              updateCarousel();
+              resetAutoplay();
+            };
+          })(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        var dots = dotsContainer.querySelectorAll('.testimonials-dot');
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      prevBtn.addEventListener('click', function() {
+        var maxIndex = getMaxIndex();
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+        updateCarousel();
+        resetAutoplay();
+      });
+
+      nextBtn.addEventListener('click', function() {
+        var maxIndex = getMaxIndex();
+        currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+        updateCarousel();
+        resetAutoplay();
+      });
+
+      // Autoplay
+      function startAutoplay() {
+        autoplayTimer = setInterval(function() {
+          if (!isPaused) {
+            var maxIndex = getMaxIndex();
+            currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+            updateCarousel();
+          }
+        }, 4000);
+      }
+
+      function resetAutoplay() {
+        clearInterval(autoplayTimer);
+        startAutoplay();
+      }
+
+      // Pause on hover
+      track.addEventListener('mouseenter', function() { isPaused = true; });
+      track.addEventListener('mouseleave', function() { isPaused = false; });
+
+      // Touch swipe
+      var startX = 0;
+      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; isPaused = true; }, { passive: true });
+      track.addEventListener('touchend', function(e) {
+        var diff = startX - e.changedTouches[0].clientX;
+        var maxIndex = getMaxIndex();
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) { currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0; }
+          else { currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex; }
+          updateCarousel();
+          resetAutoplay();
+        }
+        isPaused = false;
+      }, { passive: true });
+
+      window.addEventListener('resize', function() {
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        createDots();
+        updateCarousel();
+      });
+
+      createDots();
+      updateCarousel();
+      startAutoplay();
+    })();
+
+    // ===========================
+    // FAQ ACCORDION
+    // ===========================
+    (function() {
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
+        question.addEventListener('click', function() {
+          var isOpen = item.classList.contains('open');
+          // Close all
+          items.forEach(function(i) { i.classList.remove('open'); });
+          // Open clicked if was closed
+          if (!isOpen) { item.classList.add('open'); }
+        });
+      });
+    })();
+
+    // ===========================
+    // FORM VALIDATION
+    // ===========================
+    (function() {
+      var form = document.getElementById('carboneForm');
+      var successMsg = document.getElementById('formSuccess');
+      if (!form) return;
+
+      function showError(fieldId, errorId) {
+        var field = document.getElementById(fieldId);
+        var error = document.getElementById(errorId);
+        if (field) field.classList.add('error');
+        if (error) error.classList.add('visible');
+      }
+
+      function clearError(fieldId, errorId) {
+        var field = document.getElementById(fieldId);
+        var error = document.getElementById(errorId);
+        if (field) field.classList.remove('error');
+        if (error) error.classList.remove('visible');
+      }
+
+      // Clear errors on input
+      var fields = [
+        ['field-name', 'error-name'],
+        ['field-whatsapp', 'error-whatsapp'],
+        ['field-email', 'error-email'],
+        ['field-company', 'error-company'],
+        ['field-role', 'error-role'],
+        ['field-revenue', 'error-revenue'],
+        ['field-sells', 'error-sells'],
+        ['field-client', 'error-client'],
+        ['field-block', 'error-block'],
+        ['field-date', 'error-date'],
+        ['field-time', 'error-time'],
+      ];
+
+      fields.forEach(function(pair) {
+        var el = document.getElementById(pair[0]);
+        if (el) {
+          el.addEventListener('input', function() { clearError(pair[0], pair[1]); });
+          el.addEventListener('change', function() { clearError(pair[0], pair[1]); });
+        }
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var hasError = false;
+
+        // Name
+        var name = document.getElementById('field-name');
+        if (!name || name.value.trim().length < 3) {
+          showError('field-name', 'error-name'); hasError = true;
+        }
+
+        // WhatsApp
+        var wp = document.getElementById('field-whatsapp');
+        var wpVal = wp ? wp.value.replace(/\D/g, '') : '';
+        if (wpVal.length < 10) {
+          showError('field-whatsapp', 'error-whatsapp'); hasError = true;
+        }
+
+        // Email
+        var email = document.getElementById('field-email');
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email.value)) {
+          showError('field-email', 'error-email'); hasError = true;
+        }
+
+        // Company
+        var company = document.getElementById('field-company');
+        if (!company || company.value.trim() === '') {
+          showError('field-company', 'error-company'); hasError = true;
+        }
+
+        // Role
+        var role = document.getElementById('field-role');
+        if (!role || role.value.trim() === '') {
+          showError('field-role', 'error-role'); hasError = true;
+        }
+
+        // Revenue
+        var revenue = document.getElementById('field-revenue');
+        if (!revenue || revenue.value === '') {
+          showError('field-revenue', 'error-revenue'); hasError = true;
+        }
+
+        // Sells
+        var sells = document.getElementById('field-sells');
+        if (!sells || sells.value.trim() === '') {
+          showError('field-sells', 'error-sells'); hasError = true;
+        }
+
+        // Client
+        var client = document.getElementById('field-client');
+        if (!client || client.value.trim() === '') {
+          showError('field-client', 'error-client'); hasError = true;
+        }
+
+        // Block
+        var block = document.getElementById('field-block');
+        if (!block || block.value.trim() === '') {
+          showError('field-block', 'error-block'); hasError = true;
+        }
+
+        // Date — must be at least today + 7 days
+        var dateInput = document.getElementById('field-date');
+        if (dateInput) {
+          var selectedDate = new Date(dateInput.value + 'T00:00:00');
+          var minDate = new Date();
+          minDate.setDate(minDate.getDate() + 7);
+          minDate.setHours(0, 0, 0, 0);
+          if (!dateInput.value || selectedDate < minDate) {
+            showError('field-date', 'error-date'); hasError = true;
+          }
+        }
+
+        // Time
+        var time = document.getElementById('field-time');
+        if (!time || time.value === '') {
+          showError('field-time', 'error-time'); hasError = true;
+        }
+
+        if (!hasError) {
+          // Show success
+          form.style.display = 'none';
+          successMsg.classList.add('visible');
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          // Scroll to first error
+          var firstError = form.querySelector('.form-control.error');
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstError.focus();
+          }
+        }
+      });
+    })();
+
+    // ===========================
+    // SMOOTH SCROLL for anchor links
+    // ===========================
+    (function() {
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var offset = 80; // navbar height
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
